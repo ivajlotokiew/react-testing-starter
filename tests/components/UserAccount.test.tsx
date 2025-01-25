@@ -29,6 +29,11 @@ describe("UserAccount", () => {
 
         render(<UserAccount user={user} />)
 
+        //Get element in the virtual DOM that contains the exact text
+        const searchedElement = screen.getByText('User Profile');
+        //Show the element
+        screen.debug(searchedElement)
+
         const name = screen.getByRole('user-name')
         expect(name).toBeInTheDocument();
         expect(name).toHaveTextContent('Name: ' + user.name)
